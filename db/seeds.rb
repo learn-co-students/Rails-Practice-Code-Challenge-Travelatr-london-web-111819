@@ -6,10 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 30.times do 
   Destination.create({
-    name: Faker::GameOfThrones.city,
+    name: Faker::Address.city,
     country: Faker::Address.country
   })
 end
@@ -26,7 +25,7 @@ end
     Post.create({
       title: Faker::Hipster.sentence(3),
       content: Faker::Hipster.paragraphs(4),
-      likes: 0,
+      likes: Faker::Number.between(from: 1, to: 10),
       blogger: blogger,
       destination: Destination.all.sample
     })

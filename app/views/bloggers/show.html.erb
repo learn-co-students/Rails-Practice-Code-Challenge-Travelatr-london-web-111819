@@ -1,0 +1,8 @@
+<h1>Here is your profile</h1>
+
+<h2>Name: <%= @blogger.name %></h2>
+<h2>Bio: <%= @blogger.bio %></h2>
+<h2>Age: <%= @blogger.age %></h2>
+
+<h3>This blogger has <%= @blogger.total_likes %> likes</h3>
+<h3>This user's most popular post is: <%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %></h3>

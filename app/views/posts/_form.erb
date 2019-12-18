@@ -1,0 +1,14 @@
+<h2>SELECT A BLOGGER...</h2>
+<%= form_for @post do |f| %>
+<p><%= f.collection_select(:blogger_id,Blogger.all,:id,:name) %></p>
+<br>
+<h2>SELECT A DESTINATION...</h2>
+<p><%= f.collection_select(:destination_id,Destination.all,:id,:name) %></p>
+<br>
+<p><%= f.label :title %></p>
+<p><%= f.text_field :title %></p>
+<br>
+<p><%= f.label :content %></p>
+<p><%= f.text_field :content %></p>
+<p><%= f.submit %></p>
+<% end %>

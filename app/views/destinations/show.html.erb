@@ -1,0 +1,10 @@
+<h1>Destination info:</h1>
+
+<h2>Name: <%= @destination.name %></h2>
+<h2>Country: <%= @destination.country %></h2>
+
+<h2>This destinations featured post is: <%= link_to @destination.featured_post.title, post_path(@destination.featured_post) %></h2>
+
+<h3>The average age of bloggers who have written about this destination is: <%= @destination.average_age %></h3>
+
+<h3>The most recent 5 posts written about this destination are: <%= @destination.five_recent_posts.map{ |post| post.title} %></h3>

@@ -10,7 +10,7 @@ class DestinationsController < ApplicationController
 	def show
 		@destination = Destination.find(params[:id])
 		@most_recent_5_posts = @destination.most_recent_N_posts(5)
-		@most_featured_post = @destination.most_liked_N_posts(1).first
+		@most_featured_post = @destination.most_liked_N_posts(1)
 		@average_age = @destination.average_age_of_all_bloggers_posted_on
 	end
 
@@ -36,7 +36,7 @@ class DestinationsController < ApplicationController
 	  redirect_to destination_path(@destination)
 	end
 	########NOT NEEDED
-	
+
 	private
 		def destination_params
 			params.require(:destination).permit(:name, :country)

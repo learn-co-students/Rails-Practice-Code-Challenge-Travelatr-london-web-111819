@@ -5,8 +5,8 @@ class BloggersController < ApplicationController
 
 	def show
         @blogger = Blogger.find(params[:id])
-        @the_post = @blogger.top_N_by_blogger(1)[0]
-        @blogger_top_5_posts_destinations = @blogger.top_N_by_blogger(5).map{|post|post.destination.name}.uniq
+        @the_post = @blogger.featured_post
+        # @blogger_top_5_posts_destinations = @blogger.top_N_by_blogger(5).map{|post|post.destination.name}.uniq
 	end
 
 	def new

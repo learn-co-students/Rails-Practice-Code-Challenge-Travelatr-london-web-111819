@@ -12,8 +12,12 @@ class Blogger < ApplicationRecord
         self.posts.sum("likes")
     end
 
-    def top_N_by_blogger(n)
-        self.posts.max_by(n){|p|p.likes}.sort_by{|p| p.likes}.reverse
+    def featured_post
+        self.posts.max_by(&:likes)
+    end
+
+    def top_5_most_written_destinations
+        self.posts.group_by("destination_id")
     end
     
 end

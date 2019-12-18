@@ -9,6 +9,13 @@
   </head>
 
   <body>
+  <%=link_to "| All bloggers", bloggers_path%>
+  <%=link_to "| New blogger", new_blogger_path%>
+
+  <%=link_to "| All destinations", destinations_path%>
+
+  <%=link_to "| All posts", posts_path%>
+  <%=link_to "| New post", new_post_path%>
     <%= yield %>
   </body>
 </html>

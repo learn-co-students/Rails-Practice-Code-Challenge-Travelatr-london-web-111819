@@ -1,0 +1,37 @@
+<% if @post.errors.full_messages.length > 0 %>
+
+    <ul>
+    
+        <% @post.errors.full_messages.each do |message| %>
+
+            <li>
+            
+                <%= message %>
+            
+            </li>
+
+        <% end %>
+
+    </ul>
+
+<% end %>
+
+<h1>Create a new Post</h1>
+
+<%= form_for @post do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+
+    <%= f.label :blogger %>
+    <%= f.collection_select :blogger_id, Blogger.all, :id, :name %>
+
+    <%= f.label :destination %>
+    <%= f.collection_select :destination_id, Destination.all, :id, :name %>
+
+    <%= f.submit %>
+
+<% end %>

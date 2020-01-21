@@ -1,0 +1,32 @@
+<h1>Post Form</h1>
+
+<% if @post.errors.full_messages.length > 0 %>
+  <!-- Iterate through the full messages of each error attached to the instance of pet and create a li for each one with the value of the error message injected into it. -->
+  <h2><%= pluralize(@post.errors.full_messages.length , "error") %> prohibited this post from being created:</h2>
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%=form_for(@post) do |f|%>
+
+<%=f.label :Select_Blogger%>
+<%= f.collection_select :blogger_id, Blogger.all, :id, :name %>
+<div></div>
+
+<%=f.label :Select_Destination%>
+<%= f.collection_select :destination_id, Destination.all, :id, :name %>
+<div></div>
+
+
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %><br>
+
+<%=f.submit @button_name%>
+<% end %>

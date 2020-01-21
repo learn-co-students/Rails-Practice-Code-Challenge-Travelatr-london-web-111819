@@ -1,0 +1,17 @@
+<div><h2>Blogger </h2></div>
+<p><%= @blogger.name %></p>
+
+<div><h2>Details</h2></div>
+<p><%= @blogger.bio %></p>
+<p><%= @blogger.age %></p>
+
+<div>The total likes on all of that blogger's posts</div>
+<p><%=  @blogger.total_likes  %></p>
+
+<div>A link to that blogger's featured post (the post with the most likes)</div>
+<p><%=  link_to @the_post.title, post_path(@the_post)  %></p>
+
+
+
+
+

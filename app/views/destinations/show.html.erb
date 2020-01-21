@@ -1,0 +1,33 @@
+<div><h2>Destination </h2></div>
+<p><%= @destination.name %></p>
+
+<div><h2>Details</h2></div>
+<p><%= @destination.country %></p>
+
+<div>The most recent 5 posts written about this destination</div>
+
+<%if @most_recent_5_posts == nil%>
+<%="Not applicable - no post on this destination"%>
+<%else%>
+<%@most_recent_5_posts.each{|post|%>
+<p><%=  link_to post.title, post_path(post)  %></p>
+<%}%>
+<%end%>
+
+
+<div>A link to a featured post (this destination's post with the most likes)</div>
+<%if @most_featured_post == nil%>
+<%="Not applicable - no post on this destination"%>
+<% else %>
+<%= link_to @most_featured_post.destination.name, post_path(@most_featured_post)%>
+<%end%>
+
+<div>The average age of all unique bloggers who have written about this destination.</div>
+<%if @average_age == nil%>
+<%="Not applicable - no post on this destination"%>
+<% else %>
+<%= @average_age%>
+<%end%>
+
+<% test_array=["a","1"];test_message="test reason"%>
+<%= evaluate_result(test_array,test_message)%>
